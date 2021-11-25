@@ -19,7 +19,7 @@ if (env === "development") {
     host: "localhost",
     user: "mohan",
     password: "Welcome2tag@6268",
-    database: "development_blog_post",
+    database: "production_blog_post",
   };
 } else if (env === "test") {
   poolConfig = {
@@ -27,7 +27,7 @@ if (env === "development") {
     host: "localhost",
     user: "mohan",
     password: "Welcome2tag@6268",
-    database: "test_blog_post",
+    database: "production_blog_post",
   };
 }
 
