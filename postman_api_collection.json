@@ -198,12 +198,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1637913832474,
+			"time": 1637917297427,
 			"name": "create user",
 			"description": "",
 			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
 			"responses": [],
-			"rawModeData": "{\n\t\"username\":\"devusersnew\",\n\t\"email\":\"devusersnew@gmail.com\",\n\t\"password\":\"password\",\n\t\"userType\": 1\n\t\n\t\n}"
+			"rawModeData": "{\n\t\"username\":\"newuser3\",\n\t\"email\":\"newuser3@gmail.com\",\n\t\"password\":\"password\",\n\t\"userType\": 1\n\t\n\t\n}"
 		},
 		{
 			"id": "4463e518-d617-46c7-1f91-274d99a2a853",
@@ -269,12 +269,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1637912319671,
+			"time": 1637916894273,
 			"name": "create post",
 			"description": "post api for creating post",
 			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
 			"responses": [],
-			"rawModeData": "{      \n\t\"postTitle\":\"government update\",\n\t\"description\":\"Episode for Smriti Irani to promote her debut novel, 'Lal Salaam' on The Kapil Sharma Show didn't happen due to misunderstanding\"\n}"
+			"rawModeData": "{      \n\t\"postTitle\":\" test post  \",\n\t\"description\":\" test post decription\"\n}"
 		},
 		{
 			"id": "7ec64b70-3fa3-857f-db1d-9c325deda362",
@@ -293,7 +293,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/posts/1/replies/{{id}}",
+			"url": "http://localhost:5000/api/posts/{{postid}}/replies/{{repyid}}",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -305,7 +305,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1637915542960,
+			"time": 1637917303533,
 			"name": "get rply by  reply id",
 			"description": "",
 			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
@@ -364,7 +364,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/posts/?searchBy=username&keyword=testuser",
+			"url": "http://localhost:5000/api/posts/?searchBy=username&keyword={{username}}",
 			"queryParams": [
 				{
 					"key": "searchBy",
@@ -375,7 +375,7 @@
 				},
 				{
 					"key": "keyword",
-					"value": "testuser",
+					"value": "{{username}}",
 					"equals": true,
 					"description": "",
 					"enabled": true
@@ -390,7 +390,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1637912578730,
+			"time": 1637916861954,
 			"name": "search posts",
 			"description": "post api for creating post",
 			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
@@ -399,11 +399,11 @@
 		},
 		{
 			"id": "a052d33e-c930-e2bd-5c87-f94fc41fc60e",
-			"headers": "x-auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjM3OTA2OTcwLCJleHAiOjE2Mzc5OTMzNzB9.CV-As0fh_aLVcWDGSUD8O6HIDP7lHgxKPKYk1Pkg-6Q\nContent-Type: application/json\n",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
 			"headerData": [
 				{
 					"key": "x-auth",
-					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjM3OTA2OTcwLCJleHAiOjE2Mzc5OTMzNzB9.CV-As0fh_aLVcWDGSUD8O6HIDP7lHgxKPKYk1Pkg-6Q",
+					"value": "{{x-auth}}",
 					"description": "",
 					"enabled": true
 				},
@@ -414,24 +414,23 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:5000/api/posts/1/replies",
+			"url": "http://localhost:5000/api/posts/{{postid}}/replies",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "GET",
-			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
 			"data": [],
 			"dataMode": "raw",
-			"name": "get replies in post",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1637914749332,
 			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
+			"time": 1637917299998,
+			"name": "get replies in post",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
 			"rawModeData": "{\n\t\"postId\": 1\t,\n\t\"replies\": \"ssss scnd  update reply\"\n}"
 		},
 		{
