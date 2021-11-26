@@ -16,3 +16,11 @@ sqlschema.sql in root folter  (dump)
 
 
 or table  details in  ./app/sql/index.sql for only table details
+
+
+
+## to satrt app 
+
+npm  install or npm i 
+
+npm start
