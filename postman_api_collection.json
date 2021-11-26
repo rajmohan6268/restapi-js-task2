@@ -1,0 +1,667 @@
+{
+	"id": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+	"name": "nodemysqlbogs",
+	"description": "",
+	"order": [
+		"3db22de1-5089-936b-6b9e-a6f8310b13dd",
+		"0cae5a4f-7a91-a0ae-ff48-d8384739d951",
+		"162c7642-b8f0-4896-0b21-c5658db16ef8",
+		"ea5b2b8a-e83e-a3bd-b0ce-3c9071d0aa55",
+		"bc13d5f2-bd0d-9f37-3be2-81921073915e",
+		"d672758d-27dc-7425-3189-4b3743633dc4",
+		"568d1725-f2ed-5ef3-99e4-ffe6999649eb",
+		"cda272d2-5fef-8d1a-c055-aab566b2662b",
+		"ce55ec45-1c33-49af-1e0b-d2d3a697b060",
+		"984c36e0-a6c9-d819-d19f-46bf05212e35",
+		"23c2c2a2-473c-6666-4036-9c4b6077ba67",
+		"8341c7ea-119d-2265-9b4f-411e71c1047a",
+		"a052d33e-c930-e2bd-5c87-f94fc41fc60e",
+		"7ec64b70-3fa3-857f-db1d-9c325deda362",
+		"4463e518-d617-46c7-1f91-274d99a2a853",
+		"f0be5f14-9036-2037-f62a-cccb5691bb7a",
+		"0c723b4a-9328-dbff-5d5a-7e640260e66e"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1637857480995,
+	"owner": "7565700",
+	"public": false,
+	"requests": [
+		{
+			"id": "0c723b4a-9328-dbff-5d5a-7e640260e66e",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/{{postid}}/replies/{{replyid}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637916128254,
+			"name": "delete reply",
+			"description": "post api for creating post",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{      \n\t\"postTitle\":\"government update new\",\n\t\"description\":\"Episode for Smriti Irani to promote her debut novel, 'Lal Salaam' on The Kapil Sharma Show didn't happen due to misunderstanding\"\n}"
+		},
+		{
+			"id": "0cae5a4f-7a91-a0ae-ff48-d8384739d951",
+			"headers": "Content-Type: application/json\nx-auth: {{x-auth}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/users/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637913435336,
+			"name": "get users",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\":\"testuser\",\n\t\"email\":\"test123@gmail.com\",\n\t\"password\":\"password\",\n\t\"userType\": 1\n\t\n\t\n}"
+		},
+		{
+			"id": "162c7642-b8f0-4896-0b21-c5658db16ef8",
+			"headers": "//Content-Type: application/json\n//x-auth: \n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": false
+				},
+				{
+					"key": "x-auth",
+					"value": "",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"url": "http://localhost:5000/api/users/{{id}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637913724439,
+			"name": "get user by id",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\":\"testuser\",\n\t\"email\":\"test123@gmail.com\",\n\t\"password\":\"password\",\n\t\"userType\": 1\n\t\n\t\n}"
+		},
+		{
+			"id": "23c2c2a2-473c-6666-4036-9c4b6077ba67",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/{{id}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637914221922,
+			"name": "getposts by id",
+			"description": "post api for creating post",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{      \n\t\"postTitle\":\"government update new\",\n\t\"description\":\"Episode for Smriti Irani to promote her debut novel, 'Lal Salaam' on The Kapil Sharma Show didn't happen due to misunderstanding\"\n}"
+		},
+		{
+			"id": "3db22de1-5089-936b-6b9e-a6f8310b13dd",
+			"headers": "Content-Type: application/json\nx-auth: {{x-auth}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/users/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637913832474,
+			"name": "create user",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\":\"devusersnew\",\n\t\"email\":\"devusersnew@gmail.com\",\n\t\"password\":\"password\",\n\t\"userType\": 1\n\t\n\t\n}"
+		},
+		{
+			"id": "4463e518-d617-46c7-1f91-274d99a2a853",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/{{postid}}/replies/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637915517731,
+			"name": "post reply for post by postid",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{\n\t\"replies\": \"ssss scnd  update reply\"\n}"
+		},
+		{
+			"id": "568d1725-f2ed-5ef3-99e4-ffe6999649eb",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637912319671,
+			"name": "create post",
+			"description": "post api for creating post",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{      \n\t\"postTitle\":\"government update\",\n\t\"description\":\"Episode for Smriti Irani to promote her debut novel, 'Lal Salaam' on The Kapil Sharma Show didn't happen due to misunderstanding\"\n}"
+		},
+		{
+			"id": "7ec64b70-3fa3-857f-db1d-9c325deda362",
+			"headers": "x-auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjM3OTA2OTcwLCJleHAiOjE2Mzc5OTMzNzB9.CV-As0fh_aLVcWDGSUD8O6HIDP7lHgxKPKYk1Pkg-6Q\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjM3OTA2OTcwLCJleHAiOjE2Mzc5OTMzNzB9.CV-As0fh_aLVcWDGSUD8O6HIDP7lHgxKPKYk1Pkg-6Q",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/1/replies/{{id}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637915542960,
+			"name": "get rply by  reply id",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{\n\t\"postId\": 1\t,\n\t\"replies\": \"ssss scnd  update reply\"\n}"
+		},
+		{
+			"id": "8341c7ea-119d-2265-9b4f-411e71c1047a",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/{{id}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637914483594,
+			"name": "delete post",
+			"description": "post api for creating post",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "984c36e0-a6c9-d819-d19f-46bf05212e35",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/?searchBy=username&keyword=testuser",
+			"queryParams": [
+				{
+					"key": "searchBy",
+					"value": "username",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "keyword",
+					"value": "testuser",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637912578730,
+			"name": "search posts",
+			"description": "post api for creating post",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{      \n\t\"postTitle\":\"government update new\",\n\t\"description\":\"Episode for Smriti Irani to promote her debut novel, 'Lal Salaam' on The Kapil Sharma Show didn't happen due to misunderstanding\"\n}"
+		},
+		{
+			"id": "a052d33e-c930-e2bd-5c87-f94fc41fc60e",
+			"headers": "x-auth: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjM3OTA2OTcwLCJleHAiOjE2Mzc5OTMzNzB9.CV-As0fh_aLVcWDGSUD8O6HIDP7lHgxKPKYk1Pkg-6Q\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJ1c2VyVHlwZSI6MCwiaWF0IjoxNjM3OTA2OTcwLCJleHAiOjE2Mzc5OTMzNzB9.CV-As0fh_aLVcWDGSUD8O6HIDP7lHgxKPKYk1Pkg-6Q",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/1/replies",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "get replies in post",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1637914749332,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"postId\": 1\t,\n\t\"replies\": \"ssss scnd  update reply\"\n}"
+		},
+		{
+			"id": "bc13d5f2-bd0d-9f37-3be2-81921073915e",
+			"headers": "Content-Type: application/json\nx-auth: {{x-auth}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/users/{{id}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637913999006,
+			"name": "delete user",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "cda272d2-5fef-8d1a-c055-aab566b2662b",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637912383742,
+			"name": "get all post",
+			"description": "post api for creating post",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{      \n\t\"postTitle\":\"government update new\",\n\t\"description\":\"Episode for Smriti Irani to promote her debut novel, 'Lal Salaam' on The Kapil Sharma Show didn't happen due to misunderstanding\"\n}"
+		},
+		{
+			"id": "ce55ec45-1c33-49af-1e0b-d2d3a697b060",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/?limit=5&offset=0",
+			"queryParams": [
+				{
+					"key": "limit",
+					"value": "5",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "offset",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637912494939,
+			"name": "get post using offset and limit",
+			"description": "post api for creating post",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{      \n\t\"postTitle\":\"government update new\",\n\t\"description\":\"Episode for Smriti Irani to promote her debut novel, 'Lal Salaam' on The Kapil Sharma Show didn't happen due to misunderstanding\"\n}"
+		},
+		{
+			"id": "d672758d-27dc-7425-3189-4b3743633dc4",
+			"headers": "Content-Type: application/json\nx-auth: {{x-auth}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/auth/login",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637911907109,
+			"name": "login",
+			"description": "login ",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\":\"testuser\",\n\t\"email\":\"test123@gmail.com\",\n\t\"password\":\"password\",\n\t\"userType\": 1\n\t\n\t\n}"
+		},
+		{
+			"id": "ea5b2b8a-e83e-a3bd-b0ce-3c9071d0aa55",
+			"headers": "Content-Type: application/json\nx-auth: {{x-auth}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/users/{{id}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637913892538,
+			"name": "update uses",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\":\"testuser\",\n\t\"email\":\"updatedtestusertest123@gmail.com\",\n\t\"password\":\"password\",\n\t\"userType\": 1\n}"
+		},
+		{
+			"id": "f0be5f14-9036-2037-f62a-cccb5691bb7a",
+			"headers": "x-auth: {{x-auth}}\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "x-auth",
+					"value": "{{x-auth}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:5000/api/posts/{{postid}}/replies/{{replyid}}",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1637915755965,
+			"name": "updatereply by id",
+			"description": "",
+			"collectionId": "3560823e-1f35-760d-3fcb-1b849bd4665e",
+			"responses": [],
+			"rawModeData": "{\n\t\"replies\": \"ssss scnd  update reply\"\n}"
+		}
+	]
+}
