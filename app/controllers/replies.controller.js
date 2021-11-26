@@ -46,7 +46,9 @@ exports.getRepliesbyId = async (req, res) => {
     if (data.length == 0) {
       return sendResponse(res, 404, [], " invalid reply  id");
     }
-
+    if (!data[0].replies) {
+      return sendResponse(res, 404, [], "reply not found");
+    }
     return sendResponse(res, 200, data[0], "");
   } catch (err) {
     // eslint-disable-next-line no-console
