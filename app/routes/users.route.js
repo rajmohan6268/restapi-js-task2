@@ -2,7 +2,7 @@ module.exports = (app) => {
   const router = require("express").Router();
   const UserController = require("../controllers/users.controller");
 
-  const { checkAuth } = require("./../middlewares");
+  const { checkAuth ,isAdmin } = require("./../middlewares");
   //isAdmin
   router
     .get("/",  UserController.getUsers)
