@@ -3,7 +3,8 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
-const expressValidator = require('express-validator');
+const expressValidator = require("express-validator");
+var compression = require("compression");
 
 // initiate app
 const app = express();
@@ -14,10 +15,12 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
+app.use(compression());
+app.disable("x-powered-by");
 
 //Set  headers
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Expose-Headers", "X-Powered-By, X-Auth");
+  res.setHeader("Access-Control-Expose-Headers", "X-Auth");
   next();
 });
 

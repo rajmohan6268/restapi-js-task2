@@ -37,9 +37,8 @@ exports.createUser = async (req, res) => {
       userType: 0,
     };
 
-    // generate token
     const token = jwt.sign(userData, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRY,
+      expiresIn:  process.env.JWT_EXPIRY || "1d",
     });
     // set token in response headers
     res.header("x-auth", token);
@@ -111,7 +110,7 @@ exports.updateUser = async (req, res) => {
     if (updatedUser.affectedRows === 0) {
       return sendResponse(res, 404, [], "user not found");
     }
-    return sendResponse(res, 200, [], "user updated");
+    return sendResponse(res, 200, [updatedUser], "user updated");
   } catch (err) {
     //console.error(err);
     return sendResponse(
@@ -151,6 +150,7 @@ exports.getusebyid = async (req, res) => {
     if (user.length === 0) {
       return sendResponse(res, 404, [], "user not found");
     }
+    delete user[0].password;
     return sendResponse(res, 200, user[0], "user retrieved");
   } catch (err) {
     //console.error(err);

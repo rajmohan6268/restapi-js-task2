@@ -7,7 +7,7 @@ module.exports = (app) => {
   router
     .get("/", postController.getPosts)
     .get("/:id", postController.getPostsbyId)
-    .post("/create", postController.createPost)
+    .post("/", postController.createPost)
     .put("/:id", postController.updatePost)
     .delete("/:id", postController.deletePost);
 

@@ -47,10 +47,11 @@ exports.login = async (req, res) => {
 
     // generate token
     const token = jwt.sign(userDetailForToken, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRY,
+      expiresIn: process.env.JWT_EXPIRY || "1d",
     });
     // set token in response header
     res.header("x-auth", token);
+
     // also send token in response body
     return sendResponse(res, 200, { token }, "Login successful");
   } catch (err) {

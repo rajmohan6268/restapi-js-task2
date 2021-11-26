@@ -4,20 +4,57 @@ const pool = require("../db");
 exports.getReplyByPostId = async (req, res) => {
   const postId = parseInt(req.params.id, 10);
   const { userId } = req.user;
-
+  let id = parseInt(req.params.id, 10);
   try {
-    const data = await pool.query(
-      "SELECT * FROM replies WHERE repliedOn = ?",
+    const postdata = await pool.query(
+      "SELECT * FROM posts WHERE   id = ? ",
       postId
     );
-    if (data.length === 0) {
+
+    const repliesData = await pool.query(
+      "SELECT * FROM replies WHERE  repliedOn = ?",
+
+      postId
+    );
+    if (postdata.length === 0) {
       return sendResponse(res, 404, [], " invalid userid or post id");
     }
-    return sendResponse(res, 200, data[0], "replied on post");
+    return sendResponse(
+      res,
+      200,
+      [{ post: postdata[0][0], replies: repliesData[0] }],
+      "replied on post"
+    );
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(err);
-    return sendResponse(res, 500, [], "something went wrong");
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong"
+    );
+  }
+};
+
+exports.getRepliesbyId = async (req, res) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+
+    const data = await pool.query("SELECT * FROM replies WHERE id = ?", id);
+    if (data.length === 0) {
+      return sendResponse(res, 404, [], " invalid reply  id");
+    }
+    return sendResponse(res, 200, data[0], "");
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong invalid reply  id"
+    );
   }
 };
 
@@ -43,11 +80,16 @@ exports.createtReplyByPostId = async (req, res) => {
     if (data[0].affectedRows === 0) {
       return sendResponse(res, 404, [], " invalid userid or post id");
     }
-    return sendResponse(res, 200, [], "replied on post");
+    return sendResponse(res, 200, [data], "replied on post");
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(err);
-    return sendResponse(res, 500, [], "something went wrong");
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong"
+    );
   }
 };
 exports.updatetReplyByPostId = async (req, res) => {
@@ -72,13 +114,18 @@ exports.updatetReplyByPostId = async (req, res) => {
     if (data[0].affectedRows === 0) {
       return sendResponse(res, 404, [], "reply not found ");
     }
-    return sendResponse(res, 200, [], "replied on post");
+    return sendResponse(res, 200, [data], "replied on post");
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error(err);
-    return sendResponse(res, 500, [], "something went wrong");
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong"
+    );
   }
 };
+
 exports.deletetReplyByPostId = async (req, res) => {
   const replyid = parseInt(req.params.replyid, 10);
 
@@ -89,9 +136,14 @@ exports.deletetReplyByPostId = async (req, res) => {
     if (data[0].affectedRows === 0) {
       return sendResponse(res, 404, [], "reply not found ");
     }
-    return sendResponse(res, 200, [], "reply deleted");
+    return sendResponse(res, 200, [data], "reply deleted");
   } catch (err) {
     console.error(err);
-    return sendResponse(res, 500, [], "something went wrong");
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong"
+    );
   }
 };

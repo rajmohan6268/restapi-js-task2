@@ -6,6 +6,7 @@ if (!poolConfig) {
   process.exit(0);
 }
 
-const pool = mysql.createPool(poolConfig);
+const pool = mysql.createPool(poolConfig)
+
 
 module.exports = pool;

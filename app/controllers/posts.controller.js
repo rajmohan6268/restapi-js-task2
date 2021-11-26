@@ -16,6 +16,10 @@ exports.getPosts = async (req, res) => {
     .optional();
 
   const errors = req.validationErrors();
+  console.log(
+    req.query,
+    "keywordkeywordkeywordkeywordkeywordkeywordkeywordkeywordkeyword"
+  );
 
   if (errors) {
     return sendResponse(res, 400, [], errors[0].msg);
@@ -25,12 +29,13 @@ exports.getPosts = async (req, res) => {
   const { offset } = req.query;
   const { searchBy } = req.query;
   const { keyword } = req.query;
+
   try {
     // get all posts
     let getQuery =
-      "SELECT p.id, p.postTitle, p.description, u.username AS author, p.createdAt FROM posts p INNER JOIN users u ON p.createdBy = u.id";
+      "SELECT p.id, p.postTitle, p.description, u.username AS postedBy, p.createdAt FROM posts p INNER JOIN users u ON p.createdBy = u.id";
 
-    // concatenate query with getQuery to get author posts
+    // concatenate query with getQuery to get postedBy posts
     if (searchBy && keyword) {
       getQuery += ` WHERE ${searchBy} LIKE '%${keyword}'`;
     }
@@ -43,7 +48,6 @@ exports.getPosts = async (req, res) => {
     // console.log(getQuery);
 
     const [data] = await pool.query(getQuery);
-    // console.log(data);
     if (data.length === 0) {
       return sendResponse(res, 404, [], "not found");
     }
@@ -82,7 +86,7 @@ exports.getPostsbyId = async (req, res) => {
   try {
     const { id } = req.params;
     const [data] = await pool.query(
-      `SELECT p.id, p.postTitle, p.description, u.username AS author, p.createdAt FROM posts p INNER JOIN users u ON p.createdBy = u.id WHERE p.id = ?`,
+      `SELECT p.id, p.postTitle, p.description, u.username AS postedBy, p.createdAt FROM posts p INNER JOIN users u ON p.createdBy = u.id WHERE p.id = ?`,
       [id]
     );
     if (data.length === 0) {
@@ -149,10 +153,11 @@ exports.createPost = async (req, res) => {
     };
 
     const data = await pool.query("INSERT INTO posts SET ? ", post);
-
-    return sendResponse(res, 200, [], "posted successful");
+    if (data[0].affectedRows === 0) {
+      return sendResponse(res, 404, [], "post added sucessfully");
+    }
+    return sendResponse(res, 200, [data], "posted successful");
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error(err);
     return sendResponse(
       res,
@@ -177,7 +182,7 @@ exports.updatePost = async (req, res) => {
     if (data[0].affectedRows === 0) {
       return sendResponse(res, 404, [], "post not found");
     }
-    return sendResponse(res, 200, [], "UPDATE successful");
+    return sendResponse(res, 200, [data], "UPDATE successful");
   } catch (err) {
     console.error(err);
     return sendResponse(
@@ -198,7 +203,6 @@ exports.deletePost = async (req, res) => {
     }
     return sendResponse(res, 200, [data], "DELETE successful");
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error(err);
     return sendResponse(
       res,

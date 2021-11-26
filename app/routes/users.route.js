@@ -3,13 +3,13 @@ module.exports = (app) => {
   const UserController = require("../controllers/users.controller");
 
   const { checkAuth } = require("./../middlewares");
-
+  //isAdmin
   router
-    .get("/", UserController.getUsers)
-    .get("/:id", UserController.getusebyid)
-    .post("/create", UserController.createUser)
-    .put("/:id", UserController.updateUser)
-    .delete("/:id", UserController.deleteUser);
+    .get("/", checkAuth, UserController.getUsers)
+    .get("/:id", checkAuth, UserController.getusebyid)
+    .post("/", UserController.createUser)
+    .put("/:id", checkAuth, UserController.updateUser)
+    .delete("/:id", checkAuth, UserController.deleteUser);
 
-  app.use("/api/users", checkAuth, router);
+  app.use("/api/users", router);
 };

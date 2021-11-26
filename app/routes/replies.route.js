@@ -6,11 +6,12 @@ module.exports = (app) => {
 
   router
     .get("/:id/replies", repliesController.getReplyByPostId)
+    .get("/:id/replies/:id", repliesController.getRepliesbyId)
     .post("/:id/replies", repliesController.createtReplyByPostId)
     .put("/:id/replies/:replyid", repliesController.updatetReplyByPostId)
     .delete("/:id/replies/:replyid", repliesController.deletetReplyByPostId);
 
-  //checkAuth
+  //checkAuth 
 
   app.use("/api/posts", checkAuth, router);
 };
