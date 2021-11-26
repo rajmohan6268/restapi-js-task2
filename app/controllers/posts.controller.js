@@ -156,7 +156,12 @@ exports.createPost = async (req, res) => {
     if (data[0].affectedRows === 0) {
       return sendResponse(res, 404, [], "post added sucessfully");
     }
-    return sendResponse(res, 200, [data], "posted successful");
+    return sendResponse(
+      res,
+      200,
+      [{ postid: data[0].insertId }],
+      "posted successful"
+    );
   } catch (err) {
     console.error(err);
     return sendResponse(

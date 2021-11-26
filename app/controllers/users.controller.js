@@ -38,7 +38,7 @@ exports.createUser = async (req, res) => {
     };
 
     const token = jwt.sign(userData, process.env.JWT_SECRET, {
-      expiresIn:  process.env.JWT_EXPIRY || "1d",
+      expiresIn: process.env.JWT_EXPIRY || "1d",
     });
     // set token in response headers
     res.header("x-auth", token);
@@ -140,7 +140,6 @@ exports.deleteUser = async (req, res) => {
     );
   }
 };
-
 exports.getusebyid = async (req, res) => {
   console.log(req.params.id);
   try {

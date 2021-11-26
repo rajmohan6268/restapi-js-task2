@@ -11,7 +11,7 @@ module.exports = (app) => {
     .put("/:id/replies/:replyid", repliesController.updatetReplyByPostId)
     .delete("/:id/replies/:replyid", repliesController.deletetReplyByPostId);
 
-  //checkAuth 
+  //checkAuth
 
   app.use("/api/posts", checkAuth, router);
 };

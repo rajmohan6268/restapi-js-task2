@@ -19,6 +19,7 @@ exports.getReplyByPostId = async (req, res) => {
     if (postdata.length === 0) {
       return sendResponse(res, 404, [], " invalid userid or post id");
     }
+
     return sendResponse(
       res,
       200,
@@ -42,9 +43,10 @@ exports.getRepliesbyId = async (req, res) => {
     const id = parseInt(req.params.id, 10);
 
     const data = await pool.query("SELECT * FROM replies WHERE id = ?", id);
-    if (data.length === 0) {
+    if (data.length == 0) {
       return sendResponse(res, 404, [], " invalid reply  id");
     }
+
     return sendResponse(res, 200, data[0], "");
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -74,13 +76,22 @@ exports.createtReplyByPostId = async (req, res) => {
       repliedBy: userId,
       repliedOn: postId,
     };
+    /*
+    comments: comment,
+      commentedBy: userId,
+      commentedOn: postId, */
 
     // query to insert replies detail in db
     const data = await pool.query("INSERT INTO replies SET ?", repliesData);
     if (data[0].affectedRows === 0) {
       return sendResponse(res, 404, [], " invalid userid or post id");
     }
-    return sendResponse(res, 200, [data], "replied on post");
+    return sendResponse(
+      res,
+      200,
+      [{ replyId: data[0].insertId }],
+      "replied on post"
+    );
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(err);

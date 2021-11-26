@@ -1,4 +1,6 @@
-const env = process.env.NODE_ENV || "development";
+//const env = process.env.NODE_ENV || "development";
+const env = "development";
+
 process.env.JWT_SECRET = "addJwtSectretHere";
 process.env.JWT_EXPIRY = "1d";
 
@@ -12,6 +14,7 @@ if (env === "production") {
     database: process.env.DB_NAME,
   };
 }
+//  used  production_blog_post db  for now to minimise  setup time
 
 if (env === "development") {
   poolConfig = {

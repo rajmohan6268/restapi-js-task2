@@ -5,11 +5,11 @@ module.exports = (app) => {
   const { checkAuth } = require("./../middlewares");
   //isAdmin
   router
-    .get("/", checkAuth, UserController.getUsers)
-    .get("/:id", checkAuth, UserController.getusebyid)
+    .get("/",  UserController.getUsers)
+    .get("/:id",  UserController.getusebyid)
     .post("/", UserController.createUser)
-    .put("/:id", checkAuth, UserController.updateUser)
-    .delete("/:id", checkAuth, UserController.deleteUser);
+    .put("/:id",  UserController.updateUser)
+    .delete("/:id",  UserController.deleteUser);
 
   app.use("/api/users", router);
 };
