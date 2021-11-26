@@ -5,12 +5,13 @@ module.exports = (app) => {
   const { checkAuth } = require("./../middlewares");
 
   router
-    .get("/",   postController.getPosts)
+    .get("/", postController.getPosts)
+    .get("/:id", postController.getPostsbyId)
     .post("/create", postController.createPost)
-    .put("/", postController.updatePost)
-    .delete("/", postController.deletePost);
+    .put("/:id", postController.updatePost)
+    .delete("/:id", postController.deletePost);
 
   //checkAuth
 
-  app.use("/api/posts", router);
+  app.use("/api/posts", checkAuth, router);
 };

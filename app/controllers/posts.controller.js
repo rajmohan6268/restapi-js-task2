@@ -69,9 +69,55 @@ exports.getPosts = async (req, res) => {
     return sendResponse(res, 200, data, "successful");
   } catch (err) {
     console.error(err);
-    return sendResponse(res, 500, [], "internal server error");
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "internal server error"
+    );
   }
 };
+
+exports.getPostsbyId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [data] = await pool.query(
+      `SELECT p.id, p.postTitle, p.description, u.username AS author, p.createdAt FROM posts p INNER JOIN users u ON p.createdBy = u.id WHERE p.id = ?`,
+      [id]
+    );
+    if (data.length === 0) {
+      return sendResponse(res, 404, [], "not found");
+    }
+    const replyQuery =
+      "SELECT r.id as replyId, r.replies,r.repliedOn, r.createdAt, u.username as repliedBy FROM replies r INNER JOIN posts ON r.repliedOn = posts.id INNER JOIN users  u ON r.repliedBy = u.id";
+
+    // execute query and get replies on a particular post
+    const [replies] = await pool.query(replyQuery);
+
+    data.forEach((post) => {
+      const tempArr = [];
+      replies.forEach((reply) => {
+        if (reply.repliedOn === post.id) {
+          tempArr.push(reply);
+        }
+      });
+      post.replies = tempArr;
+      post.repliesCount = tempArr.length;
+    });
+
+    return sendResponse(res, 200, data, "successful");
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong"
+    );
+  }
+};
+
 exports.createPost = async (req, res) => {
   console.log(req.body);
   // validate
@@ -104,18 +150,61 @@ exports.createPost = async (req, res) => {
 
     const data = await pool.query("INSERT INTO posts SET ? ", post);
 
-    return sendResponse(res, 200, [data], "posted successful");
+    return sendResponse(res, 200, [], "posted successful");
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(err);
-    return sendResponse(res, 500, [], "something went wrong");
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong"
+    );
   }
 };
 
 exports.updatePost = async (req, res) => {
-  res.send("updatePost");
+  try {
+    const { postTitle, description } = req.body;
+    const createdBy = req.user.userId;
+    const { id } = req.params;
+    console.log(id, "postTitle, createdBy, description, id");
+    const data = await pool.query(
+      `UPDATE posts SET postTitle = ?, description = ? WHERE id = ? AND createdBy = ?`,
+
+      [postTitle, description, id, createdBy]
+    );
+    if (data[0].affectedRows === 0) {
+      return sendResponse(res, 404, [], "post not found");
+    }
+    return sendResponse(res, 200, [], "UPDATE successful");
+  } catch (err) {
+    console.error(err);
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong"
+    );
+  }
 };
 
 exports.deletePost = async (req, res) => {
-  res.send("deletePost");
+  try {
+    const { id } = req.params;
+    const data = await pool.query("DELETE FROM posts WHERE id = ?", [id]);
+    if (data[0].affectedRows === 0) {
+      return sendResponse(res, 404, [], "post not found");
+    }
+    return sendResponse(res, 200, [data], "DELETE successful");
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+    return sendResponse(
+      res,
+      500,
+      [{ message: err.message }],
+      "something went wrong"
+    );
+  }
 };

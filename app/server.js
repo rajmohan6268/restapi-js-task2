@@ -38,6 +38,7 @@ app.get("/", (req, res) => {
 require("./routes/auth.route")(app);
 require("./routes/posts.route")(app);
 require("./routes/users.route")(app);
+require("./routes/replies.route")(app);
 
 // listen port
 app.listen(port, () => {
